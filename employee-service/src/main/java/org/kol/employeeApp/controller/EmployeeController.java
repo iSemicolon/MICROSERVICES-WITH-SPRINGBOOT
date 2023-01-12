@@ -15,6 +15,7 @@ public class EmployeeController {
    EmployeeService employeeService;
 
     @GetMapping("/employees/{Id}") //Id=2
+     //http://localhost:8080/employee-app/api/employees/2
     //for get request status ok, post created
     ResponseEntity<EmployeeResponse> getEmployeeDetails(@PathVariable("Id") int id){
 
