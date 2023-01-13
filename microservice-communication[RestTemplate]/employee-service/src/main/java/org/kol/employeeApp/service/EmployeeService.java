@@ -55,6 +55,7 @@ public class EmployeeService {
         //code improvement for passing url: line 51 & line 56 are same
         AddressResponse  addressResponse=restTemplate.getForObject(addressBaseURL+"/address/{id}",AddressResponse.class, id);
 
+        //note:: restTemplate is blocking features
         //add address details with employee service
         employeeResponse.setAddressResponse(addressResponse);
 
