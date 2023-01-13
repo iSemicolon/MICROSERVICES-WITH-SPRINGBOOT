@@ -19,11 +19,17 @@ public class EmployeeController {
     //for get request status ok, post created
     ResponseEntity<EmployeeResponse> getEmployeeDetails(@PathVariable("Id") int id){
 
-        // db call -> employee 1
-       EmployeeResponse employeeResponse=employeeService.getEmployeesById(id);
+        // db call -> employee details only
+      // EmployeeResponse employeeResponse=employeeService.getEmployeesById(id);
+
+        // db call -> employee details+address only
+        EmployeeResponse employeeAddressResponse=employeeService.getAddressByUsingRestTemplate(id);
 
        //return to response to the client
-        return ResponseEntity.status(HttpStatus.OK).body(employeeResponse);
+      //  return ResponseEntity.status(HttpStatus.OK).body(employeeResponse);
+
+        //return to response to the client with "employee+address"
+          return ResponseEntity.status(HttpStatus.OK).body(employeeAddressResponse);
 
     }
 }

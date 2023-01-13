@@ -20,21 +20,23 @@ public class AddressService {
 
         //set data by rest api call
        Address address=addressRepo.findById(id).get(); //dbcall
-//
-//        AddressResponse addressResponse=new AddressResponse();
-//        addressResponse.setId(address.getId());
-//        addressResponse.setLane1(address.getLane1());
-//        addressResponse.setLane2(address.getLane2());
-//        addressResponse.setZip(address.getZip());
-//        addressResponse.setState(address.getState());
-
-        //Replaced commented lines with ModelMapper
 
         AddressResponse addressResponse=  modelMapper.map(address, AddressResponse.class);
 
        return addressResponse;
 
    }
+
+    public AddressResponse findAddressByEmployeeId(int id) {
+
+        //set data by rest api call
+        Address address=addressRepo.findAddressDetailsByEmployeeId(id); //dbcall
+
+        AddressResponse addressResponse=  modelMapper.map(address, AddressResponse.class);
+
+        return addressResponse;
+
+    }
 
 
    }

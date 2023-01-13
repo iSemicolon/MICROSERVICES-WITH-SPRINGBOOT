@@ -9,16 +9,17 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class EmployeeResponse {
+public class AddressResponse {
 
     private  int id;
 
-    private  String name;
+    private  String lane1;
 
-    private  String email;
+    private  String lane2;
 
-    private  String bloodGroup;
+    private  long zip;
 
-    private AddressResponse addressResponse;
+    private  String state;
+
 
 }
