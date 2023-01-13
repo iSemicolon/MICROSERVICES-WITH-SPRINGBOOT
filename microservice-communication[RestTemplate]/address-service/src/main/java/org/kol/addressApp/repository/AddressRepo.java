@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AddressRepo extends JpaRepository<Address, Integer> {
-    @Query(nativeQuery = true,value = "SELECT ea.id, ea.lane1, ea.lane2, ea.state, ea.zip FROM organisation.address ea join organisation.employee e on e.id=ea.employee_id where ea.employee_id=:employeeId")
+    @Query(nativeQuery = true,value = "SELECT addrs.id, addrs.lane1, addrs.lane2, addrs.state, addrs.zip FROM organisation.address addrs join organisation.employee emp on emp.id=addrs.employee_id where addrs.employee_id=:employeeId")
     Address findAddressDetailsByEmployeeId(@Param("employeeId") int employeeId);
 
 }
